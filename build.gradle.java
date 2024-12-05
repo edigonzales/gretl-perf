@@ -16,28 +16,14 @@ buildscript {
 
 plugins {
   id "de.undercouch.download" version "4.1.2"
-  id "ch.so.agi.gretl" version "2.3.426"
-  //id "ch.so.agi.gretl" version "3.0.LOCALBUILD"
+  //id "ch.so.agi.gretl" version "2.3.426"
+  id "ch.so.agi.gretl" version "3.0.LOCALBUILD"
 }
 
-defaultTasks 'unzipFile'
+defaultTasks 'foo'
 
-tasks.register('downloadFile', Download) {
-    src "https://files.geo.so.ch/ch.so.agi.av.dm01_ch/aktuell/2549.ch.so.agi.av.dm01_ch.itf.zip"
-    dest file("2549.ch.so.agi.av.dm01_ch.itf.zip")
-    overwrite true
+tasks.register('foo') {
+    doLast {
+        println("foo")
+    }
 }
-
-tasks.register('unzipFile', Copy) {
-    dependsOn 'downloadFile'
-    from zipTree(Paths.get("2549.ch.so.agi.av.dm01_ch.itf.zip"))
-    into file(".")
-    include "**/*.itf"
-}
-
-/*
-tasks.register('validateData', IliValidator) {
-    dependsOn 'unzipFile'
-    dataFiles = ["2549.ch.so.agi.av.dm01_ch.itf"]
-}
-*/
