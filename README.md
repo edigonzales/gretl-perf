@@ -30,3 +30,11 @@ println("foo"):
 ```
 docker run --rm -u gradle -v "$PWD":/home/gradle/project -v "$PWD".gradle:/home/gradle/.gradle -w /home/gradle/project gradle:7.6.4-jdk11 gradle -i
 ```
+
+```
+-v /Users/stefan/tmp/gradlecache:/home/gradle/.gradle/caches
+```
+
+```
+./gradlew -p runtimeImage/cache -g runtimeImage/cache/gradlecache -c settings.gradle
+```
