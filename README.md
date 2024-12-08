@@ -25,3 +25,8 @@ println("foo"):
 - GRETL-Image 2.4 (5.1.1): 9s 
 - GRETL-Image latest (8.11.1): 24s Auch ohne apply dauert es 23s. Die Libraries werden wohl irgendwie bereits berücksichtigt. classpath -> filetree (ist ja alles drin)
 - GRETL-Image latest: 8-9s: mit nur Download-Plugin-Libs
+
+
+```
+docker run --rm -u gradle -v "$PWD":/home/gradle/project -v "$PWD".gradle:/home/gradle/.gradle -w /home/gradle/project gradle:7.6.4-jdk11 gradle -i
+```
